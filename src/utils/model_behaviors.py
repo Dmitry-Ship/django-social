@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Deletable(models.Model):
     is_deleted = models.BooleanField(default=False)
 
-    def delete(self, using=None, keep_parents=False):
+    def deactivate(self):
         self.is_deleted = True
         self.save()
 

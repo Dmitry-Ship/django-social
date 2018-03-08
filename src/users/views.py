@@ -1,54 +1,56 @@
+from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import generics, mixins, permissions
 from rest_framework.views import APIView
-from rest_framework.response import Response
-from .serializers import UserProfileDetailSerializer, UserProfileListSerializer, FollowSerializer
-from .models import UserProfile, Follow
+from .serializers import UserProfileDetailSerializer, UserProfileListSerializer
 from django.contrib.auth.models import User
+import users.errors as errors
+from utils import responses, custom_mixins
 
 
-class UserProfilesAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    lookup_field = 'pk'
+class UserProfilesAPIView(generics.ListCreateAPIView, custom_mixins.ListModelMixin):
     queryset = User.objects.all()
     serializer_class = UserProfileListSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-    def perform_create(self, serializer):
-        return serializer.save()
 
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
-
-
-class UserProfileItemAPIView(APIView):
+class UserProfileItemAPIView(generics.RetrieveAPIView, custom_mixins.RetrieveModelMixin):
     permission_classes = [permissions.IsAuthenticated]
-
-    def get(self, request, pk):
-
-        user = User.objects.get(pk=pk)
-        serializer = UserProfileDetailSerializer(user)
-
-        return Response({'status': True, 'data': serializer.data})
+    serializer_class = UserProfileDetailSerializer
+    queryset = User.objects.all()
 
 
 class FollowAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
-    def post(self, request, pk):
+    @staticmethod
+    def post(request, pk):
         user = User.objects.get(pk=request.user.id)
-        target = User.objects.get(pk=pk).userprofile
+        try:
+            target = User.objects.get(pk=pk)
+        except ObjectDoesNotExist as err:
+            return responses.failed_response(err.__str__())
 
-        user.userprofile.follow(target=target)
-
-        return Response({'status': True})
+        try:
+            user.userprofile.follow(target=target)
+            return responses.successful_response()
+        except errors.SelfFollowing as err:
+            return responses.failed_response(err.__str__())
 
 
 class UnfollowAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
-    def post(self, request, pk):
+    @staticmethod
+    def post(request, pk):
         user = User.objects.get(pk=request.user.id)
-        target = User.objects.get(pk=pk).userprofile
+        try:
+            target = User.objects.get(pk=pk)
+        except ObjectDoesNotExist as err:
+            return responses.failed_response(err.__str__())
 
-        user.userprofile.unfollow(target=target)
+        try:
+            user.userprofile.unfollow(target=target)
+        except errors.NotFollowing as err:
+            return responses.failed_response(err.__str__())
 
-        return Response({'status': True})
+        return responses.successful_response()

@@ -2,17 +2,16 @@ from django.db.models import Q
 from rest_framework import generics, mixins, permissions
 from .serializers import PostSerializer
 from .models import Post
-from utils.permissions import IsOwnerOrReadOnly
+from utils import responses, custom_mixins
 
 
-class PostsAPIView(mixins.CreateModelMixin, generics.ListAPIView):
+class PostsAPIView(mixins.CreateModelMixin, generics.ListAPIView, custom_mixins.ListModelMixin):
     lookup_field = 'pk'
-    queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        qs = Post.objects.all()
+        qs = Post.active.all()
         query = self.request.GET.get('q', )
         if query is not None:
             qs = qs.filter(Q(content__icontains=query)).distinct()
@@ -25,10 +24,9 @@ class PostsAPIView(mixins.CreateModelMixin, generics.ListAPIView):
         return self.create(request, *args, **kwargs)
 
 
-class PostItemAPIView(generics.RetrieveUpdateDestroyAPIView):
+class PostItemAPIView(custom_mixins.RetrieveModelMixin, generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'pk'
-    queryset = Post.objects.all()
+    queryset = Post.active.all()
     serializer_class = PostSerializer
-    permission_classes = [IsOwnerOrReadOnly, permissions.IsAuthenticated]
-
+    permission_classes = [permissions.IsAuthenticated]
 

@@ -14,4 +14,23 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
             return True
 
         # Instance must have an attribute named `owner`.
-        return obj.user == request.user
+        return obj.author == request.user
+
+
+
+# class IsFollowerOrReadOnly(permissions.BasePermission):
+#     """
+#     View-level permission to allow the follower to edit the following relation
+#     """
+#
+#     def has_permission(self, request, view):
+#         if request.method in permissions.SAFE_METHODS:
+#             return True
+#
+#         try:
+#             follower = User.objects.get(id=view.kwargs["pk"])
+#         except User.DoesNotExist:
+#             #Reject any request for an invalid user
+#             return False
+#
+#         return follower == request.user

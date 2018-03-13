@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+import datetime
+from django.utils import timezone
 
 class DeletableQuerySet(models.QuerySet):
     pass
@@ -27,6 +28,11 @@ class Deletable(models.Model):
 class Timestampable(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+
+    def save(self, *args, **kwargs):
+        if self.pk:
+            self.modified_date = datetime.datetime.utcnow()
+        super(Timestampable, self).save(*args, **kwargs)
 
     class Meta:
         abstract = True

@@ -1,32 +1,37 @@
 from django.db.models import Q
-from rest_framework import generics, mixins, permissions
+from rest_framework import generics, permissions
 from .serializers import PostSerializer
 from .models import Post
-from utils import responses, custom_mixins
+from utils import mixins as custom_mixins, permissions as custom_permissions
 
 
-class PostsAPIView(mixins.CreateModelMixin, generics.ListAPIView, custom_mixins.ListModelMixin):
-    lookup_field = 'pk'
+class PostsAPIView(generics.ListCreateAPIView, custom_mixins.CreateModelMixin, custom_mixins.ListModelMixin):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         qs = Post.active.all()
+
         query = self.request.GET.get('q', )
         if query is not None:
             qs = qs.filter(Q(content__icontains=query)).distinct()
+
+        user = self.request.query_params.get('user', None)
+        if user is not None:
+            qs = qs.filter(author=user)
         return qs
 
     def perform_create(self, serializer):
         return serializer.save(author=self.request.user)
 
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
 
-
-class PostItemAPIView(custom_mixins.RetrieveModelMixin, generics.RetrieveUpdateDestroyAPIView):
+class PostItemAPIView(
+                        custom_mixins.RetrieveModelMixin,
+                        custom_mixins.DestroyModelMixin,
+                        custom_mixins.UpdateModelMixin,
+                        generics.RetrieveUpdateDestroyAPIView):
     lookup_field = 'pk'
     queryset = Post.active.all()
     serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated, custom_permissions.IsOwnerOrReadOnly]
 

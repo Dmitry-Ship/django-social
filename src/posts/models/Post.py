@@ -20,12 +20,13 @@ class PostManager(models.Manager):
 
 
 class Post(Deletable, Timestampable, Authorable):
-    content = models.CharField(max_length=140, null=True, blank=False)
+    content = models.CharField(max_length=140, null=False, blank=False)
     objects = PostManager()
 
-    def save(self, *args, **kwargs):
-        self.modified_date = datetime.datetime.utcnow().replace(tzinfo = utc)
-        super(Post, self).save(args, kwargs)
+    # def save(self, *args, **kwargs):
+    #     if self.pk:
+    #         self.modified_date = datetime.datetime.utcnow()
+    #     super(Post, self).save(args, kwargs)
 
     def __str__(self):
         return str(self.content)

@@ -4,19 +4,20 @@ from rest_framework.views import APIView
 from .serializers import UserProfileDetailSerializer, UserProfileListSerializer
 from django.contrib.auth.models import User
 import users.errors as errors
-from utils import responses, custom_mixins
+from utils import responses, mixins as custom_mixins
+from utils.decorators import custom_404
 
 
-class UserProfilesAPIView(generics.ListCreateAPIView, custom_mixins.ListModelMixin):
+class UserProfilesAPIView(generics.ListCreateAPIView, custom_mixins.ListModelMixin, custom_mixins.CreateModelMixin):
     queryset = User.objects.all()
-    serializer_class = UserProfileListSerializer
     permission_classes = [permissions.IsAuthenticated]
+    serializer_class = UserProfileListSerializer
 
 
 class UserProfileItemAPIView(generics.RetrieveAPIView, custom_mixins.RetrieveModelMixin):
+    queryset = User.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserProfileDetailSerializer
-    queryset = User.objects.all()
 
 
 class FollowAPIView(APIView):
@@ -41,6 +42,7 @@ class UnfollowAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     @staticmethod
+    @custom_404
     def post(request, pk):
         user = User.objects.get(pk=request.user.id)
         try:

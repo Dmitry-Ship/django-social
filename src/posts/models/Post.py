@@ -1,7 +1,6 @@
 from django.db import models
-import datetime
-from django.utils import timezone
 from utils.model_behaviors import Deletable, Timestampable, Authorable
+from comments.models import Comment
 
 
 class PostQuerySet(models.QuerySet):
@@ -23,10 +22,14 @@ class Post(Deletable, Timestampable, Authorable):
     content = models.CharField(max_length=140, null=False, blank=False)
     objects = PostManager()
 
-    # def save(self, *args, **kwargs):
-    #     if self.pk:
-    #         self.modified_date = datetime.datetime.utcnow()
-    #     super(Post, self).save(args, kwargs)
+    @property
+    def comments(self):
+        qs = Comment.active.filter(post=self.id)
+        return qs
+
+    def comment(self, user, text):
+        obj = Comment.active.create(author=user, post=self, content=text)
+        return obj
 
     def __str__(self):
         return str(self.content)

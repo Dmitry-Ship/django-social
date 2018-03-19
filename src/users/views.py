@@ -1,5 +1,5 @@
 from django.core.exceptions import ObjectDoesNotExist
-from rest_framework import generics, mixins, permissions
+from rest_framework import generics, permissions
 from rest_framework.views import APIView
 from .serializers import UserProfileDetailSerializer, UserProfileListSerializer
 from django.contrib.auth.models import User

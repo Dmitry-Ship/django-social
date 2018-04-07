@@ -1,10 +1,10 @@
 from rest_framework import serializers
 from .models import Comment
-from users.serializers.UserProfileSerializer import UserProfileListSerializer
+from users.serializers.UserProfileSerializer import UserProfileSimpleSerializer
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    author = UserProfileListSerializer(read_only=True)
+    author = UserProfileSimpleSerializer(read_only=True)
 
     class Meta:
         model = Comment

@@ -1,13 +1,15 @@
 from django.db.models import Q
+from django.contrib.auth.models import User
 from rest_framework import generics, permissions
+from rest_framework.views import APIView
 from .serializers import PostSerializer
 from comments.serializers import CommentSerializer
+from likes.serializers import LikeSerializer
 from .models import Post
-from django.contrib.auth.models import User
 from utils import responses
 from utils.decorators import custom_404
 from utils import mixins as custom_mixins, permissions as custom_permissions
-from rest_framework.views import APIView
+from likes.decorators import handle_likes_errors
 
 
 class PostsAPIView(generics.ListCreateAPIView, custom_mixins.CreateModelMixin, custom_mixins.ListModelMixin):
@@ -53,3 +55,33 @@ class CommentAPIView(APIView):
         text = request.data['text']
         comment = post.comment(user, text)
         return responses.successful_response(data=comment)
+
+
+class LikeAPIView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = LikeSerializer
+
+    @staticmethod
+    @custom_404
+    @handle_likes_errors
+    def post(request, pk):
+        user = User.objects.get(pk=request.user.id)
+        post = Post.active.get(pk=pk)
+        like = post.like(user)
+
+        return responses.successful_response(data=like)
+
+
+class DislikeAPIView(APIView):
+    permission_classes = [permissions.IsAuthenticated, custom_permissions.IsOwnerOrReadOnly]
+    serializer_class = LikeSerializer
+
+    @staticmethod
+    @custom_404
+    @handle_likes_errors
+    def post(request, pk):
+        user = User.objects.get(pk=request.user.id)
+        post = Post.active.get(pk=pk)
+        post.dislike(user)
+
+        return responses.successful_response()

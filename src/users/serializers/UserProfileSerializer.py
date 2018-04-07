@@ -3,6 +3,14 @@ from django.contrib.auth.models import User
 from constants import GENDER_CHOICES
 
 
+class UserProfileSimpleSerializer(serializers.ModelSerializer):
+    full_name = serializers.CharField(source="userprofile.full_name")
+
+    class Meta:
+        model = User
+        fields = ('id', 'full_name')
+
+
 class UserProfileListSerializer(serializers.ModelSerializer):
     full_name = serializers.CharField(source="userprofile.full_name")
     followers_count = serializers.IntegerField(source="userprofile.followers_count")

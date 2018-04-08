@@ -2,8 +2,6 @@ from django.db import models
 from utils.model_behaviors import Deletable, Timestampable, Authorable
 from comments.models import Comment
 from likes.models import Like, Target
-import likes.errors as errors
-from django.core.exceptions import ObjectDoesNotExist
 from django.dispatch import receiver
 from django.db.models.signals import pre_save
 from django.db.models import Count
@@ -32,27 +30,10 @@ class Post(Deletable, Timestampable, Authorable):
         qs = Comment.active.filter(post=self.id)
         return qs
 
-    def comment(self, user, text):
-        obj = Comment.active.create(author=user, post=self, content=text)
-        return obj
-
-    def like(self, user):
-        obj = Like.active.create(author=user, target=self.target)
-        return obj
-
     @property
     def likes(self):
         qs = Like.active.filter(target=self.target)
         return qs
-
-    def dislike(self, user):
-        try:
-            obj = Like.active.get(target=self.target, author=user)
-            obj.deactivate()
-            obj.save()
-            return obj
-        except ObjectDoesNotExist:
-            raise errors.NeverLiked()
 
     def __str__(self):
         return str(self.content)

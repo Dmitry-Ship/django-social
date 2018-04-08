@@ -14,7 +14,7 @@ class CommentManager(models.Manager):
 class Comment(Deletable, Timestampable, Authorable):
     content = models.TextField(max_length=140, null=False, blank=False)
     objects = CommentManager()
-    post = models.ForeignKey('posts.Post', on_delete=models.CASCADE,)
+    post = models.ForeignKey('posts.Post', on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.content)

@@ -1,11 +1,11 @@
-from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import generics, permissions
 from rest_framework.views import APIView
 from .serializers import UserProfileDetailSerializer, UserProfileListSerializer
 from django.contrib.auth.models import User
-import users.errors as errors
 from utils import responses, mixins as custom_mixins
 from utils.decorators import custom_404
+from .decorators import handle_follow_errors
+from .models import Follow
 
 
 class UserProfilesAPIView(generics.ListCreateAPIView, custom_mixins.ListModelMixin, custom_mixins.CreateModelMixin):
@@ -24,18 +24,14 @@ class FollowAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     @staticmethod
+    @custom_404
+    @handle_follow_errors
     def post(request, pk):
         user = User.objects.get(pk=request.user.id)
-        try:
-            target = User.objects.get(pk=pk)
-        except ObjectDoesNotExist as err:
-            return responses.failed_response(err.__str__())
+        target = User.objects.get(pk=pk)
+        Follow.objects.create(to_person=target, from_person=user)
 
-        try:
-            user.userprofile.follow(target=target)
-            return responses.successful_response()
-        except errors.SelfFollowing as err:
-            return responses.failed_response(err.__str__())
+        return responses.successful_response()
 
 
 class UnfollowAPIView(APIView):
@@ -43,16 +39,12 @@ class UnfollowAPIView(APIView):
 
     @staticmethod
     @custom_404
+    @handle_follow_errors
     def post(request, pk):
         user = User.objects.get(pk=request.user.id)
-        try:
-            target = User.objects.get(pk=pk)
-        except ObjectDoesNotExist as err:
-            return responses.failed_response(err.__str__())
-
-        try:
-            user.userprofile.unfollow(target=target)
-        except errors.NotFollowing as err:
-            return responses.failed_response(err.__str__())
+        target = User.objects.get(pk=pk)
+        follow = Follow.active.get(to_person=target, from_person=user)
+        follow.deactivate()
+        follow.save()
 
         return responses.successful_response()

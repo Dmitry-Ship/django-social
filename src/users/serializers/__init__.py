@@ -1,2 +1,1 @@
 from .UserProfileSerializer import UserProfileDetailSerializer, UserProfileListSerializer
-from .FollowSerializer import FollowSerializer

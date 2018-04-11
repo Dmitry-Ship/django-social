@@ -2,11 +2,9 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
-from django.core.exceptions import ObjectDoesNotExist
 from constants import GENDER_CHOICES
 from utils.model_behaviors import Timestampable
-from .Follow import Follow
-from users import errors
+from follows.models import Follow
 
 
 class UserProfile(Timestampable):
@@ -35,19 +33,6 @@ class UserProfile(Timestampable):
     @property
     def full_name(self):
         return '%s %s' % (self.user.first_name, self.user.last_name)
-
-    def follow(self, target):
-        obj = Follow.active.create(from_person=self.user, to_person=target)
-        return obj
-
-    def unfollow(self, target):
-        try:
-            obj = Follow.active.get(from_person=self.user, to_person=target)
-            obj.deactivate()
-            obj.save()
-            return obj
-        except ObjectDoesNotExist:
-            raise errors.NotFollowing()
 
     def __str__(self):
         return self.full_name

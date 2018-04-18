@@ -25,6 +25,7 @@ urlpatterns = [
     path('likes/', include('likes.urls')),
     path('follows/', include('follows.urls')),
     path('users/', include('users.urls')),
+    path('me/', include('users.me_urls')),
     path('accounts/login/', auth_views.LoginView.as_view()),
     path('accounts/logout/', auth_views.LogoutView.as_view()),
 ]

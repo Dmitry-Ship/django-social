@@ -2,13 +2,14 @@ from rest_framework import serializers
 from .models import Post
 from users.serializers.UserProfileSerializer import UserProfileSimpleSerializer
 from comments.serializers import CommentSerializer
-from likes.serializers import LikeSerializer
+from likes.serializers import LikeSerializer, TargetSerializer
 
 
 class PostSerializer(serializers.ModelSerializer):
     author = UserProfileSimpleSerializer(read_only=True)
     comments = CommentSerializer(many=True, read_only=True)
     likes = LikeSerializer(many=True, read_only=True)
+    target = TargetSerializer(read_only=True)
 
     class Meta:
         model = Post

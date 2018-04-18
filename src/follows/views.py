@@ -6,7 +6,7 @@ from utils.decorators import custom_404
 from .decorators import handle_follow_errors
 from .models import Follow
 from django.core.exceptions import ObjectDoesNotExist
-from .errors import SelfFollowing, NotFollowing
+from .errors import NotFollowing
 
 
 class FollowAPIView(APIView):

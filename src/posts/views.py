@@ -1,7 +1,9 @@
 from django.db.models import Q
+from itertools import chain
 from rest_framework import generics, permissions
 from .serializers import PostSerializer
 from .models import Post
+from follows.models import Follow
 from utils import mixins as custom_mixins, permissions as custom_permissions
 
 
@@ -34,3 +36,23 @@ class PostItemAPIView(
     queryset = Post.active.all()
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated, custom_permissions.IsOwnerOrReadOnly]
+
+
+class FeedAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        users = Follow.active.filter(from_person=self.request.user.id).values_list('to_person')
+        qs = Post.active.filter(author__in=chain(users, [self.request.user]))
+
+        return qs.order_by('-create_date')
+
+
+class MyPostsAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    def get_queryset(self):
+        qs = Post.active.filter(author=self.request.user)
+
+        return qs.order_by('-create_date')

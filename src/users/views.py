@@ -24,7 +24,6 @@ class MeAPIView(APIView):
 
     @staticmethod
     def get(request):
-        qs = User.objects.all()
-        me = qs.get(pk=request.user.id)
+        me = User.objects.get(pk=request.user.id)
         serializer = UserProfileDetailSerializer(me)
         return responses.successful_response(serializer.data)

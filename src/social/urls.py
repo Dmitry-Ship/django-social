@@ -3,11 +3,16 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from users.views import MeAPIView
 from posts.views import FeedAPIView, MyPostsAPIView
+from follows.views import MyFollowersAPIView, IFollowAPIView
+from likes.views import MyLikesAPIView
 
 
 urlpatterns = [
     path('feed/', FeedAPIView.as_view()),
     path('myposts/', MyPostsAPIView.as_view()),
+    path('myfollowers/', MyFollowersAPIView.as_view()),
+    path('ifollow/', IFollowAPIView.as_view()),
+    path('mylikes/', MyLikesAPIView.as_view()),
     path('me/', MeAPIView.as_view()),
     path('admin/', admin.site.urls),
     path('posts/', include('posts.urls')),

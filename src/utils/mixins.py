@@ -1,11 +1,11 @@
 from rest_framework import mixins
 from utils import responses
-from utils.decorators import custom_404, custom_permission_denied
+from utils.decorators import handle_404, handle_permission_denied, handle_parameter_missing
 from rest_framework import status
 
 
 class CreateModelMixin(mixins.RetrieveModelMixin):
-    @custom_permission_denied
+    @handle_permission_denied
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -15,7 +15,7 @@ class CreateModelMixin(mixins.RetrieveModelMixin):
 
 
 class RetrieveModelMixin(mixins.RetrieveModelMixin):
-    @custom_404
+    @handle_404
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
         serializer = self.get_serializer(instance)
@@ -23,7 +23,8 @@ class RetrieveModelMixin(mixins.RetrieveModelMixin):
 
 
 class ListModelMixin(mixins.ListModelMixin):
-    @custom_permission_denied
+    @handle_parameter_missing
+    @handle_permission_denied
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
 
@@ -37,8 +38,8 @@ class ListModelMixin(mixins.ListModelMixin):
 
 
 class DestroyModelMixin(mixins.DestroyModelMixin):
-    @custom_permission_denied
-    @custom_404
+    @handle_permission_denied
+    @handle_404
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         self.perform_destroy(instance)
@@ -49,8 +50,8 @@ class DestroyModelMixin(mixins.DestroyModelMixin):
 
 
 class UpdateModelMixin(mixins.UpdateModelMixin):
-    @custom_permission_denied
-    @custom_404
+    @handle_permission_denied
+    @handle_404
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
         instance = self.get_object()

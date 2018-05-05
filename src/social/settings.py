@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'posts.apps.PostsConfig',
     'users.apps.UsersConfig',
+    'posts.apps.PostsConfig',
     'comments.apps.CommentsConfig',
     'likes.apps.LikesConfig',
     'follows.apps.FollowsConfig',
@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'social.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        "NAME": "django_social",
+        "USER": "dmitryshipunov",
+        "PASSWORD": "",
+        "HOST": "localhost",
+        "PORT": "",
     }
 }
 
@@ -105,6 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.User'
 
 LOGIN_REDIRECT_URL = '/users'
 # Internationalization

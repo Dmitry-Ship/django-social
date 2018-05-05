@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework import permissions, generics
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from utils import responses
 from utils.decorators import handle_404
 from .decorators import handle_follow_errors
@@ -18,8 +18,8 @@ class FollowAPIView(APIView):
     @handle_404
     @handle_follow_errors
     def post(request):
-        user = User.objects.get(pk=request.user.id)
-        target = User.objects.get(pk=request.data['user'])
+        user = get_user_model().objects.get(pk=request.user.id)
+        target = get_user_model().objects.get(pk=request.data['user'])
         Follow.objects.create(to_person=target, from_person=user)
 
         return responses.successful_response()
@@ -32,9 +32,9 @@ class UnfollowAPIView(APIView):
     @handle_404
     @handle_follow_errors
     def post(request):
-        user = User.objects.get(pk=request.user.id)
+        user = get_user_model().objects.get(pk=request.user.id)
 
-        target = User.objects.get(pk=request.data['user'])
+        target = get_user_model().objects.get(pk=request.data['user'])
 
         try:
             follow = Follow.active.get(to_person=target, from_person=user)
@@ -53,7 +53,7 @@ class IFollowAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
 
     def get_queryset(self):
         users = Follow.active.filter(from_person=self.request.user).values_list('to_person')
-        return User.objects.filter(id__in=users)
+        return get_user_model().objects.filter(id__in=users)
 
 
 class MyFollowersAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
@@ -62,7 +62,7 @@ class MyFollowersAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
 
     def get_queryset(self):
         users = Follow.active.filter(to_person=self.request.user).values_list('from_person')
-        return User.objects.filter(id__in=users)
+        return get_user_model().objects.filter(id__in=users)
 
 
 class FollowersAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
@@ -72,7 +72,7 @@ class FollowersAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
     @decorators.require_parameter('user')
     def get_queryset(self, query):
         users = Follow.active.filter(to_person=query).values_list('from_person')
-        return User.objects.filter(id__in=users)
+        return get_user_model().objects.filter(id__in=users)
 
 
 class FollowingAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
@@ -82,5 +82,5 @@ class FollowingAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
     @decorators.require_parameter('user')
     def get_queryset(self, query):
         users = Follow.active.filter(from_person=query).values_list('to_person')
-        return User.objects.filter(id__in=users)
+        return get_user_model().objects.filter(id__in=users)
 

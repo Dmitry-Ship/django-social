@@ -28,8 +28,8 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 #             return True
 #
 #         try:
-#             follower = User.objects.get(id=view.kwargs["pk"])
-#         except User.DoesNotExist:
+#             follower = get_user_model().objects.get(id=view.kwargs["pk"])
+#         except get_user_model()DoesNotExist:
 #             #Reject any request for an invalid user
 #             return False
 #

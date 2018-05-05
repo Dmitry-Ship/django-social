@@ -18,13 +18,13 @@ class Target(models.Model):
     pass
 
 
-def get_target():
-    return Target.objects.get_or_create()[1].id
+# def get_target():
+#     return Target.objects.get_or_create()[1].id
 
 
 class Like(Deletable, Timestampable, Authorable):
     objects = LikeManager()
-    target = models.ForeignKey(Target, on_delete=models.CASCADE, default=get_target)
+    target = models.ForeignKey(Target, on_delete=models.CASCADE)
 
 
 @receiver(pre_save, sender=Like)

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Like, Target
+from .models import Like
 from users.serializers.UserProfileSerializer import UserProfileSimpleSerializer
 
 
@@ -10,9 +10,3 @@ class LikeSerializer(serializers.ModelSerializer):
         model = Like
         fields = ('id', 'author')
 
-
-class TargetSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Target
-        fields = ['id']

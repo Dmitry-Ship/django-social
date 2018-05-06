@@ -1,10 +1,12 @@
 from django.db import models
-from utils.model_behaviors import Deletable, Timestampable, Authorable
-from comments.models import Comment
-from likes.models import Like, Target
-from django.dispatch import receiver
 from django.db.models.signals import pre_save
 from django.db.models import Count
+from django.dispatch import receiver
+from utils.model_behaviors import Deletable, Timestampable, Authorable
+from comments.behaviors import Commentable
+from likes.behaviors import Likable
+from entities.constants import POST
+from entities.models import Entity
 
 
 class PostQuerySet(models.QuerySet):
@@ -20,20 +22,10 @@ class PostManager(models.Manager):
         return self.get_queryset().popular()
 
 
-class Post(Deletable, Timestampable, Authorable):
+class Post(Deletable, Timestampable, Authorable, Likable, Commentable):
+    id = models.OneToOneField(Entity, on_delete=models.CASCADE, primary_key=True)
     content = models.CharField(max_length=140, null=False, blank=False)
     objects = PostManager()
-    target = models.OneToOneField(Target, on_delete=models.CASCADE)
-
-    @property
-    def comments(self):
-        qs = Comment.active.filter(post=self.id)
-        return qs
-
-    @property
-    def likes(self):
-        qs = Like.active.filter(target=self.target)
-        return qs
 
     def __str__(self):
         return str(self.content)
@@ -41,6 +33,6 @@ class Post(Deletable, Timestampable, Authorable):
 
 @receiver(pre_save, sender=Post)
 def create_post_target(sender, instance, raw, **kwargs):
-    if hasattr(instance, 'target') is False:
-        target = Target.objects.create()
-        instance.target = target
+    if hasattr(instance, 'id') is False:
+        entity = Entity.objects.create(type=POST)
+        instance.id = entity

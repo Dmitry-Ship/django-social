@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from users.views import MeAPIView
+from users.views import MeAPIView, signup
 from posts.views import FeedAPIView, MyPostsAPIView
 from follows.views import MyFollowersAPIView, IFollowAPIView
 from likes.views import MyLikesAPIView
@@ -22,4 +22,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('accounts/login/', auth_views.LoginView.as_view()),
     path('accounts/logout/', auth_views.LogoutView.as_view()),
+    path('signup/', signup),
 ]

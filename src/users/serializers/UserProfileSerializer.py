@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from constants import GENDER_CHOICES
+from users.constants import GENDER_CHOICES
 
 
 class UserProfileSimpleSerializer(serializers.ModelSerializer):

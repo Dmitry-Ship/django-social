@@ -6,19 +6,6 @@ from django.dispatch import receiver
 from .errors import SelfFollowing
 
 
-class FollowQuerySet(models.QuerySet):
-    def followers(self):
-        return self.filter(to_person=self.user).values_list('from_person', flat=True)
-
-
-class FollowManager(models.Manager):
-    def get_queryset(self):
-        return FollowQuerySet(self.model, using=self._db)
-
-    def followers(self):
-        return self.get_queryset().followers()
-
-
 class Follow(Timestampable, Deletable):
     from_person = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='sender')
     to_person = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='target')

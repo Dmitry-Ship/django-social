@@ -1,11 +1,13 @@
 from rest_framework import permissions
 from .serializers import LikeSerializer
 from posts.serializers import PostSerializer
+from comments.serializers import CommentSerializer
 from .models import Like
 from entities.models import Entity
 from utils import generics as custom_generics, decorators
 from .decorators import handle_likes_errors
 from posts.models import Post
+from comments.models import Comment
 
 
 class LikesAPIView(custom_generics.ListCreateAPIView):
@@ -26,7 +28,7 @@ class LikesAPIView(custom_generics.ListCreateAPIView):
         return serializer.save(author=self.request.user, target_entity=entity)
 
 
-class MyLikesAPIView(custom_generics.ListAPIView):
+class MyLikedPostsAPIView(custom_generics.ListAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -34,3 +36,11 @@ class MyLikesAPIView(custom_generics.ListAPIView):
         targets = Like.active.filter(author=self.request.user).values_list('target_entity')
         return Post.active.filter(id__in=targets)
 
+
+class MyLikedCommentsAPIView(custom_generics.ListAPIView):
+    serializer_class = CommentSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        targets = Like.active.filter(author=self.request.user).values_list('target_entity')
+        return Comment.active.filter(id__in=targets)

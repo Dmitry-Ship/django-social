@@ -1,19 +1,20 @@
-from rest_framework import generics, permissions
+from rest_framework import permissions
 from .serializers import LikeSerializer
 from posts.serializers import PostSerializer
 from .models import Like
 from entities.models import Entity
-from utils import mixins as custom_mixins, permissions as custom_permissions, decorators
+from utils import generics as custom_generics, decorators
 from .decorators import handle_likes_errors
 from posts.models import Post
 
 
-class LikesAPIView(generics.ListCreateAPIView, custom_mixins.CreateModelMixin, custom_mixins.ListModelMixin):
+class LikesAPIView(custom_generics.ListCreateAPIView):
     serializer_class = LikeSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+    @staticmethod
     @decorators.require_parameter('entity')
-    def get_queryset(self, query):
+    def get_queryset(query):
         return Like.active.filter(target_entity=query)
 
     @handle_likes_errors
@@ -25,18 +26,7 @@ class LikesAPIView(generics.ListCreateAPIView, custom_mixins.CreateModelMixin, c
         return serializer.save(author=self.request.user, target_entity=entity)
 
 
-class LikeItemAPIView(
-                        custom_mixins.RetrieveModelMixin,
-                        custom_mixins.DestroyModelMixin,
-                        custom_mixins.UpdateModelMixin,
-                        generics.RetrieveUpdateDestroyAPIView):
-    lookup_field = 'pk'
-    queryset = Like.active.all()
-    serializer_class = LikeSerializer
-    permission_classes = [permissions.IsAuthenticated, custom_permissions.IsOwnerOrReadOnly]
-
-
-class MyLikesAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
+class MyLikesAPIView(custom_generics.ListAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 

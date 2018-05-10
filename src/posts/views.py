@@ -1,12 +1,12 @@
 from itertools import chain
-from rest_framework import generics, permissions
+from rest_framework import permissions
 from .serializers import PostSerializer
 from .models import Post
 from follows.models import Follow
-from utils import mixins as custom_mixins, permissions as custom_permissions, decorators
+from utils import generics as custom_generics, permissions as custom_permissions, decorators
 
 
-class PostsAPIView(generics.ListCreateAPIView, custom_mixins.CreateModelMixin, custom_mixins.ListModelMixin):
+class PostsAPIView(custom_generics.ListCreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -14,23 +14,17 @@ class PostsAPIView(generics.ListCreateAPIView, custom_mixins.CreateModelMixin, c
     def get_queryset(self, query):
         return Post.active.filter(author=query)
 
-
     def perform_create(self, serializer):
         return serializer.save(author=self.request.user)
 
 
-class PostItemAPIView(
-                        custom_mixins.RetrieveModelMixin,
-                        custom_mixins.DestroyModelMixin,
-                        custom_mixins.UpdateModelMixin,
-                        generics.RetrieveUpdateDestroyAPIView):
-    lookup_field = 'pk'
+class PostItemAPIView(custom_generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.active.all()
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated, custom_permissions.IsOwnerOrReadOnly]
 
 
-class FeedAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
+class FeedAPIView(custom_generics.ListAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -41,7 +35,7 @@ class FeedAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
         return qs.order_by('-create_date')
 
 
-class MyPostsAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
+class MyPostsAPIView(custom_generics.ListAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 

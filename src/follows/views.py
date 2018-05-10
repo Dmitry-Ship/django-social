@@ -1,25 +1,25 @@
 from rest_framework.views import APIView
-from rest_framework import permissions, generics
+from rest_framework import permissions
 from django.contrib.auth import get_user_model
 from utils import responses
-from utils.decorators import handle_404
+from utils import generics as custom_generics, decorators
 from .decorators import handle_follow_errors
 from .models import Follow
 from users.serializers import UserProfileListSerializer
 from django.core.exceptions import ObjectDoesNotExist
 from .errors import NotFollowing
-from utils import mixins as custom_mixins, decorators
+User = get_user_model()
 
 
 class FollowAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     @staticmethod
-    @handle_404
+    @decorators.handle_404
     @handle_follow_errors
     def post(request):
-        user = get_user_model().objects.get(pk=request.user.id)
-        target = get_user_model().objects.get(pk=request.data['user'])
+        user = User.objects.get(pk=request.user.id)
+        target = User.objects.get(pk=request.data['user'])
         Follow.objects.create(to_person=target, from_person=user)
 
         return responses.successful_response()
@@ -29,12 +29,12 @@ class UnfollowAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     @staticmethod
-    @handle_404
+    @decorators.handle_404
     @handle_follow_errors
     def post(request):
-        user = get_user_model().objects.get(pk=request.user.id)
+        user = User.objects.get(pk=request.user.id)
 
-        target = get_user_model().objects.get(pk=request.data['user'])
+        target = User.objects.get(pk=request.data['user'])
 
         try:
             follow = Follow.active.get(to_person=target, from_person=user)
@@ -47,40 +47,41 @@ class UnfollowAPIView(APIView):
         return responses.successful_response()
 
 
-class IFollowAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
+class IFollowAPIView(custom_generics.ListAPIView):
     serializer_class = UserProfileListSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         users = Follow.active.filter(from_person=self.request.user).values_list('to_person')
-        return get_user_model().objects.filter(id__in=users)
+        return User.objects.filter(id__in=users)
 
 
-class MyFollowersAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
+class MyFollowersAPIView(custom_generics.ListAPIView):
     serializer_class = UserProfileListSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         users = Follow.active.filter(to_person=self.request.user).values_list('from_person')
-        return get_user_model().objects.filter(id__in=users)
+        return User.objects.filter(id__in=users)
 
 
-class FollowersAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
+class FollowersAPIView(custom_generics.ListAPIView):
     serializer_class = UserProfileListSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+    @staticmethod
     @decorators.require_parameter('user')
-    def get_queryset(self, query):
+    def get_queryset(query):
         users = Follow.active.filter(to_person=query).values_list('from_person')
-        return get_user_model().objects.filter(id__in=users)
+        return User.objects.filter(id__in=users)
 
 
-class FollowingAPIView(generics.ListAPIView, custom_mixins.ListModelMixin):
+class FollowingAPIView(custom_generics.ListAPIView):
     serializer_class = UserProfileListSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     @decorators.require_parameter('user')
     def get_queryset(self, query):
         users = Follow.active.filter(from_person=query).values_list('to_person')
-        return get_user_model().objects.filter(id__in=users)
+        return User.objects.filter(id__in=users)
 

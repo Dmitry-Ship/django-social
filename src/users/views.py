@@ -1,35 +1,35 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
-from rest_framework import generics, permissions
-from .serializers import UserProfileDetailSerializer, UserProfileListSerializer, UserProfileUpdateSerializer, UserUpdateSerializer
-from utils import mixins as custom_mixins
+from rest_framework import permissions
+from .serializers import UserProfileDetailSerializer, UserProfileListSerializer, UserProfileUpdateSerializer
+from utils import generics as custom_generics
 from .forms import SignUpForm
 from .models import UserProfile
+User = get_user_model()
 
 
-class UserProfilesAPIView(generics.ListCreateAPIView, custom_mixins.ListModelMixin, custom_mixins.CreateModelMixin):
+class UserProfilesAPIView(custom_generics.ListCreateAPIView):
     queryset = UserProfile.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserProfileListSerializer
 
 
-class UserProfileItemAPIView(generics.RetrieveAPIView, custom_mixins.RetrieveModelMixin):
-    queryset = get_user_model().objects.all()
+class UserProfileItemAPIView(custom_generics.RetrieveAPIView):
+    queryset = User.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserProfileDetailSerializer
 
 
-class MeAPIView(generics.RetrieveUpdateAPIView, custom_mixins.RetrieveModelMixin, custom_mixins.UpdateModelMixin):
+class MeAPIView(custom_generics.RetrieveUpdateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserProfileDetailSerializer
-    lookup_field = 'pk'
 
     def get_object(self):
-        return get_user_model().objects.get(pk=self.request.user.id)
+        return User.objects.get(pk=self.request.user.id)
 
 
-class MeUpdateAPIView(generics.UpdateAPIView, custom_mixins.UpdateModelMixin):
+class MeUpdateAPIView(custom_generics.UpdateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserProfileUpdateSerializer
 

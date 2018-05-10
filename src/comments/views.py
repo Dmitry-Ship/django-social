@@ -1,16 +1,17 @@
-from rest_framework import generics, permissions
+from rest_framework import permissions
 from .serializers import CommentSerializer
 from .models import Comment
-from utils import mixins as custom_mixins, permissions as custom_permissions, decorators
+from utils import permissions as custom_permissions, generics as custom_generics, decorators
 from entities.models import Entity
 
 
-class CommentsAPIView(generics.ListCreateAPIView, custom_mixins.CreateModelMixin, custom_mixins.ListModelMixin):
+class CommentsAPIView(custom_generics.ListCreateAPIView):
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+    @staticmethod
     @decorators.require_parameter('post')
-    def get_queryset(self, query):
+    def get_queryset(query):
         return Comment.active.filter(post=query)
 
     @decorators.handle_404
@@ -21,12 +22,7 @@ class CommentsAPIView(generics.ListCreateAPIView, custom_mixins.CreateModelMixin
         return serializer.save(author=self.request.user, target_entity=post)
 
 
-class CommentItemAPIView(
-                        custom_mixins.RetrieveModelMixin,
-                        custom_mixins.DestroyModelMixin,
-                        custom_mixins.UpdateModelMixin,
-                        generics.RetrieveUpdateDestroyAPIView):
-    lookup_field = 'pk'
+class CommentItemAPIView(custom_generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.active.all()
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticated, custom_permissions.IsOwnerOrReadOnly]

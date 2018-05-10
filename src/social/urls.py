@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from users.views import MeAPIView, signup
+from users.views import MeAPIView, signup, MeUpdateAPIView
 from posts.views import FeedAPIView, MyPostsAPIView
 from follows.views import MyFollowersAPIView, IFollowAPIView
 from likes.views import MyLikesAPIView
@@ -14,6 +14,7 @@ urlpatterns = [
     path('ifollow/', IFollowAPIView.as_view()),
     path('mylikes/', MyLikesAPIView.as_view()),
     path('me/', MeAPIView.as_view()),
+    path('updateme/', MeUpdateAPIView.as_view()),
     path('admin/', admin.site.urls),
     path('posts/', include('posts.urls')),
     path('comments/', include('comments.urls')),

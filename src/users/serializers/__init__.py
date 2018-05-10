@@ -1,1 +1,1 @@
-from .UserProfileSerializer import UserProfileDetailSerializer, UserProfileListSerializer
+from .UserProfileSerializer import UserProfileDetailSerializer, UserProfileListSerializer, UserProfileUpdateSerializer, UserUpdateSerializer

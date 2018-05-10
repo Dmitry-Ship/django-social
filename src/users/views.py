@@ -2,15 +2,14 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from rest_framework import generics, permissions
-from .serializers import UserProfileDetailSerializer, UserProfileListSerializer
+from .serializers import UserProfileDetailSerializer, UserProfileListSerializer, UserProfileUpdateSerializer, UserUpdateSerializer
 from utils import mixins as custom_mixins
-from rest_framework.views import APIView
-from utils import responses
 from .forms import SignUpForm
+from .models import UserProfile
 
 
 class UserProfilesAPIView(generics.ListCreateAPIView, custom_mixins.ListModelMixin, custom_mixins.CreateModelMixin):
-    queryset = get_user_model().objects.all()
+    queryset = UserProfile.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserProfileListSerializer
 
@@ -21,15 +20,21 @@ class UserProfileItemAPIView(generics.RetrieveAPIView, custom_mixins.RetrieveMod
     serializer_class = UserProfileDetailSerializer
 
 
-class MeAPIView(APIView):
+class MeAPIView(generics.RetrieveUpdateAPIView, custom_mixins.RetrieveModelMixin, custom_mixins.UpdateModelMixin):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserProfileDetailSerializer
+    lookup_field = 'pk'
 
-    @staticmethod
-    def get(request):
-        me = get_user_model().objects.get(pk=request.user.id)
-        serializer = UserProfileDetailSerializer(me)
-        return responses.successful_response(serializer.data)
+    def get_object(self):
+        return get_user_model().objects.get(pk=self.request.user.id)
+
+
+class MeUpdateAPIView(generics.UpdateAPIView, custom_mixins.UpdateModelMixin):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = UserProfileUpdateSerializer
+
+    def get_object(self):
+        return UserProfile.objects.get(user=self.request.user.id)
 
 
 def signup(request):

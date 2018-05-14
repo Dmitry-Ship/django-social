@@ -1,8 +1,8 @@
+from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
-from rest_framework import permissions
+from rest_framework import permissions, generics
 from django.contrib.auth import get_user_model
-from utils import responses
-from utils import generics as custom_generics, decorators
+from utils import responses, decorators
 from .decorators import handle_follow_errors
 from .models import Follow
 from users.serializers import UserProfileListSerializer
@@ -15,11 +15,10 @@ class FollowAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     @staticmethod
-    @decorators.handle_404
     @handle_follow_errors
     def post(request):
-        user = User.objects.get(pk=request.user.id)
-        target = User.objects.get(pk=request.data['user'])
+        user = get_object_or_404(User, pk=request.user.id)
+        target = get_object_or_404(User, pk=request.data['user'])
         Follow.objects.create(to_person=target, from_person=user)
 
         return responses.successful_response()
@@ -29,12 +28,10 @@ class UnfollowAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     @staticmethod
-    @decorators.handle_404
     @handle_follow_errors
     def post(request):
-        user = User.objects.get(pk=request.user.id)
-
-        target = User.objects.get(pk=request.data['user'])
+        user = get_object_or_404(User, pk=request.user.id)
+        target = get_object_or_404(User, pk=request.data['user'])
 
         try:
             follow = Follow.active.get(to_person=target, from_person=user)
@@ -47,7 +44,8 @@ class UnfollowAPIView(APIView):
         return responses.successful_response()
 
 
-class IFollowAPIView(custom_generics.ListAPIView):
+@responses.successful_response_decorator
+class IFollowAPIView(generics.ListAPIView):
     serializer_class = UserProfileListSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -56,7 +54,8 @@ class IFollowAPIView(custom_generics.ListAPIView):
         return User.objects.filter(id__in=users)
 
 
-class MyFollowersAPIView(custom_generics.ListAPIView):
+@responses.successful_response_decorator
+class MyFollowersAPIView(generics.ListAPIView):
     serializer_class = UserProfileListSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -65,7 +64,8 @@ class MyFollowersAPIView(custom_generics.ListAPIView):
         return User.objects.filter(id__in=users)
 
 
-class FollowersAPIView(custom_generics.ListAPIView):
+@responses.successful_response_decorator
+class FollowersAPIView(generics.ListAPIView):
     serializer_class = UserProfileListSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -76,7 +76,8 @@ class FollowersAPIView(custom_generics.ListAPIView):
         return User.objects.filter(id__in=users)
 
 
-class FollowingAPIView(custom_generics.ListAPIView):
+@responses.successful_response_decorator
+class FollowingAPIView(generics.ListAPIView):
     serializer_class = UserProfileListSerializer
     permission_classes = [permissions.IsAuthenticated]
 

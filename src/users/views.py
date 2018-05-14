@@ -1,27 +1,30 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
-from rest_framework import permissions
+from rest_framework import permissions, generics
 from .serializers import UserProfileDetailSerializer, UserProfileListSerializer, UserProfileUpdateSerializer
-from utils import generics as custom_generics
 from .forms import SignUpForm
 from .models import UserProfile
+from utils import responses
 User = get_user_model()
 
 
-class UserProfilesAPIView(custom_generics.ListCreateAPIView):
+@responses.successful_response_decorator
+class UserProfilesAPIView(generics.ListAPIView):
     queryset = UserProfile.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserProfileListSerializer
 
 
-class UserProfileItemAPIView(custom_generics.RetrieveAPIView):
+@responses.successful_response_decorator
+class UserProfileItemAPIView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserProfileDetailSerializer
 
 
-class MeAPIView(custom_generics.RetrieveUpdateAPIView):
+@responses.successful_response_decorator
+class MeAPIView(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserProfileDetailSerializer
 
@@ -29,7 +32,8 @@ class MeAPIView(custom_generics.RetrieveUpdateAPIView):
         return User.objects.get(pk=self.request.user.id)
 
 
-class MeUpdateAPIView(custom_generics.UpdateAPIView):
+@responses.successful_response_decorator
+class MeUpdateAPIView(generics.UpdateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserProfileUpdateSerializer
 

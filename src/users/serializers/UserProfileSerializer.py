@@ -15,11 +15,10 @@ class UserProfileSimpleSerializer(serializers.ModelSerializer):
 class UserProfileListSerializer(serializers.ModelSerializer):
     full_name = serializers.CharField()
     followers_count = serializers.IntegerField()
-    following_count = serializers.IntegerField()
 
     class Meta:
         model = UserProfile
-        fields = ('id', 'full_name', 'following_count', 'followers_count')
+        fields = ('id', 'full_name', 'followers_count')
 
 
 class UserProfileDetailSerializer(serializers.ModelSerializer):

@@ -3,12 +3,15 @@ from rest_framework import permissions
 from .serializers import PostSerializer
 from .models import Post
 from follows.models import Follow
-from utils import generics as custom_generics, permissions as custom_permissions, decorators
+from utils import mixins as custom_mixins, permissions as custom_permissions, decorators, responses
+from rest_framework import generics
 
 
-class PostsAPIView(custom_generics.ListCreateAPIView):
+@responses.successful_response_decorator
+class PostsAPIView(generics.ListCreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
+    lookup_field = 'author'
 
     @decorators.require_parameter('user')
     def get_queryset(self, query):
@@ -18,13 +21,15 @@ class PostsAPIView(custom_generics.ListCreateAPIView):
         return serializer.save(author=self.request.user)
 
 
-class PostItemAPIView(custom_generics.RetrieveUpdateDestroyAPIView):
+@responses.successful_response_decorator
+class PostItemAPIView(generics.RetrieveUpdateDestroyAPIView, custom_mixins.DestroyModelMixin):
     queryset = Post.active.all()
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated, custom_permissions.IsOwnerOrReadOnly]
 
 
-class FeedAPIView(custom_generics.ListAPIView):
+@responses.successful_response_decorator
+class FeedAPIView(generics.ListAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -35,7 +40,8 @@ class FeedAPIView(custom_generics.ListAPIView):
         return qs.order_by('-create_date')
 
 
-class MyPostsAPIView(custom_generics.ListAPIView):
+@responses.successful_response_decorator
+class MyPostsAPIView(generics.ListAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 

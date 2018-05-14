@@ -14,7 +14,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ('id', 'author', 'content', 'modified_date', 'comments', 'likes')
+        fields = ('author', 'content', 'modified_date', 'comments', 'likes')
 
     def create(self, validated_data):
         post = Post.objects.create(**validated_data)

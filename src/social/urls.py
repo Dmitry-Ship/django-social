@@ -6,13 +6,13 @@ from posts.views import FeedAPIView
 
 
 urlpatterns = [
-    path('feed', FeedAPIView.as_view()),
-    path('admin', admin.site.urls),
-    path('posts', include('posts.urls')),
-    path('comments', include('comments.urls')),
-    path('likes', include('likes.urls')),
-    path('follows', include('follows.urls')),
-    path('users', include('users.urls')),
+    path('feed/', FeedAPIView.as_view()),
+    path('admin/', admin.site.urls),
+    path('posts/', include('posts.urls')),
+    path('comments/', include('comments.urls')),
+    path('likes/', include('likes.urls')),
+    path('follows/', include('follows.urls')),
+    path('users/', include('users.urls')),
     path('accounts/login', auth_views.LoginView.as_view()),
     path('accounts/logout', auth_views.LogoutView.as_view()),
     path('signup', signup),

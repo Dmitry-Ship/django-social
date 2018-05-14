@@ -1,10 +1,12 @@
-class Error(Exception):
-    pass
+from rest_framework.exceptions import APIException
 
 
-class parameterMissing(Error):
+class MissingParameter(APIException):
+    status_code = 401
+
     def __init__(self, parameter):
         self.parameter = parameter
 
-    def __str__(self):
-        return f'parameter {self.parameter} is missing'
+    @property
+    def detail(self):
+        return f'Parameter {self.parameter} is missing'

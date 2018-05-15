@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9a5ff96-7db7-4cb0-9543-a8b5e8fcb26e" name="Default" comment="decorators for successful responses">
-      <change afterPath="$PROJECT_DIR$/src/utils/pagination.py" afterDir="false" />
+    <list default="true" id="c9a5ff96-7db7-4cb0-9543-a8b5e8fcb26e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/utils/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/comments/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/comments/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/social/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/social/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/responses.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/responses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/posts/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/posts/serializers.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,6 +37,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/comments/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="12" column="17" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="decorators.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/decorators.py">
           <provider selected="true" editor-type-id="text-editor" />
@@ -56,49 +63,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/users/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/posts/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="37" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/comments/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            <state relative-caret-position="48">
+              <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/posts/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entities/serializers.py">
+        <entry file="file://$PROJECT_DIR$/src/utils/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+            <state relative-caret-position="64">
+              <caret line="4" column="26" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pagination.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserProfileSerializer.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/users/serializers/UserProfileSerializer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="50" column="17" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pagination.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/pagination.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="48">
@@ -176,7 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/follows/errors.py" />
         <option value="$PROJECT_DIR$/src/me/urls.py" />
         <option value="$PROJECT_DIR$/src/users/me_urls.py" />
         <option value="$PROJECT_DIR$/src/me/views.py" />
@@ -205,7 +210,6 @@
         <option value="$PROJECT_DIR$/src/comments/behaviors.py" />
         <option value="$PROJECT_DIR$/src/users/serializers/__init__.py" />
         <option value="$PROJECT_DIR$/src/users/serializers/UserProfileSerializer.py" />
-        <option value="$PROJECT_DIR$/src/posts/serializers.py" />
         <option value="$PROJECT_DIR$/src/follows/urls.py" />
         <option value="$PROJECT_DIR$/src/users/urls.py" />
         <option value="$PROJECT_DIR$/src/utils/mixins.py" />
@@ -221,12 +225,14 @@
         <option value="$PROJECT_DIR$/src/comments/views.py" />
         <option value="$PROJECT_DIR$/src/likes/views.py" />
         <option value="$PROJECT_DIR$/src/notifications/models.py" />
-        <option value="$PROJECT_DIR$/src/comments/serializers.py" />
         <option value="$PROJECT_DIR$/src/comments/pagination.py" />
         <option value="$PROJECT_DIR$/src/users/views.py" />
         <option value="$PROJECT_DIR$/src/utils/responses.py" />
         <option value="$PROJECT_DIR$/src/social/settings.py" />
         <option value="$PROJECT_DIR$/src/utils/pagination.py" />
+        <option value="$PROJECT_DIR$/src/utils/serializers.py" />
+        <option value="$PROJECT_DIR$/src/comments/serializers.py" />
+        <option value="$PROJECT_DIR$/src/posts/serializers.py" />
       </list>
     </option>
   </component>
@@ -264,6 +270,18 @@
               <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
               <item name="django-social" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django-social" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="posts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django-social" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="social" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -271,6 +289,13 @@
               <item name="django-social" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django-social" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="serializers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
@@ -545,14 +570,21 @@
       <option name="project" value="LOCAL" />
       <updated>1526331758211</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="pagination">
+      <created>1526415980824</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1526415980824</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4990991" weight="0.14094433" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4990991" visible="true" weight="0.14094433" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50069445" side_tool="true" weight="0.40448114" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.328125" />
@@ -571,26 +603,6 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4989429" weight="0.33662146" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4990991" visible="true" weight="0.14094433" />
-      <window_info id="Structure" order="1" sideWeight="0.5009009" side_tool="true" weight="0.25863284" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" auto_hide="true" x="0" y="223" width="1419" height="247" id="Run" order="2" sideWeight="0.49930555" weight="0.3600493" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32889965" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.328125" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" auto_hide="true" x="0" y="87" width="1440" height="813" id="Terminal" order="10" sideWeight="0.5010571" side_tool="true" weight="0.3267571" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50069445" side_tool="true" weight="0.40448114" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Messages" order="8" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -610,7 +622,8 @@
     <MESSAGE value="simplify views" />
     <MESSAGE value="separate endpoints for liked entities" />
     <MESSAGE value="decorators for successful responses" />
-    <option name="LAST_COMMIT_MESSAGE" value="decorators for successful responses" />
+    <MESSAGE value="pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="pagination" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -624,20 +637,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/likes/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/comments/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/likes/behaviors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -745,13 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/posts/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/follows/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -833,13 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/users/serializers/UserProfileSerializer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/comments/behaviors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -918,29 +903,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/comments/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/notifications/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -965,12 +933,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/comments/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/pagination.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/notifications/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/users/serializers/UserProfileSerializer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="50" column="17" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/comments/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/posts/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>

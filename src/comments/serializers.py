@@ -1,13 +1,11 @@
-from rest_framework import serializers
 from .models import Comment
 from users.serializers.UserProfileSerializer import UserProfileSimpleSerializer
-from entities.serializers import EntitySerializer
 from likes.serializers import LikeSerializer
+from utils.serializers import TargetAsIdSerializer
 
 
-class CommentSerializer(serializers.ModelSerializer):
+class CommentSerializer(TargetAsIdSerializer):
     author = UserProfileSimpleSerializer(read_only=True)
-    id = EntitySerializer(read_only=True)
     likes = LikeSerializer(many=True, read_only=True)
 
     class Meta:

@@ -133,5 +133,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
-    'EXCEPTION_HANDLER': 'src.utils.responses.custom_exception_handler'
+    'EXCEPTION_HANDLER': 'src.utils.responses.custom_exception_handler',
+    'DEFAULT_PAGINATION_CLASS': 'src.utils.pagination.CustomPagination',
+    'PAGE_SIZE': 100
 }

@@ -17,7 +17,7 @@ def custom_exception_handler(exc, context):
 
     # Now add the HTTP status code to the response.
     if response is not None:
-        response.data['error'] = response.data.pop('detail')
+        response.data = dict({'error': response.data})
 
     return response
 
@@ -37,9 +37,13 @@ def successful_response_decorator(cls):
             super(Wrapper, self).__init__(*args)
 
         def __getattribute__(self, name):
-            method = cls.__getattribute__(self, name)
+            view_methods = ['retrieve', 'update', 'create', 'destroy']
 
-            if name in ['retrieve', 'update', 'create', 'list', 'destroy']:
+            method = cls.__getattribute__(self, name)
+            if method is None:
+                view_methods.append('list')
+
+            if name in view_methods:
                 return successful(method)
             else:
                 return method

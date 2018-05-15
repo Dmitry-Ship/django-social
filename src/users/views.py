@@ -5,7 +5,7 @@ from rest_framework import permissions, generics
 from .serializers import UserProfileDetailSerializer, UserProfileListSerializer, UserProfileUpdateSerializer
 from .forms import SignUpForm
 from .models import UserProfile
-from utils import responses
+from utils import responses, pagination
 User = get_user_model()
 
 
@@ -14,6 +14,7 @@ class UserProfilesAPIView(generics.ListAPIView):
     queryset = UserProfile.objects.all()
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserProfileListSerializer
+    # pagination_class = pagination.StandardResultsSetPagination
 
 
 @responses.successful_response_decorator

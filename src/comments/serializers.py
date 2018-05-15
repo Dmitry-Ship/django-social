@@ -7,7 +7,7 @@ from likes.serializers import LikeSerializer
 
 class CommentSerializer(serializers.ModelSerializer):
     author = UserProfileSimpleSerializer(read_only=True)
-    id = EntitySerializer(read_only=True)['id']
+    id = EntitySerializer(read_only=True)
     likes = LikeSerializer(many=True, read_only=True)
 
     class Meta:

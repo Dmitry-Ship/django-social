@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'comments.apps.CommentsConfig',
     'likes.apps.LikesConfig',
     'follows.apps.FollowsConfig',
-    'entities.apps.EntitiesConfig',
 ]
 
 MIDDLEWARE = [
@@ -83,7 +82,7 @@ WSGI_APPLICATION = 'social.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        "NAME": "django_social",
+        "NAME": "django_social_mti",
         "USER": "dmitryshipunov",
         "PASSWORD": "",
         "HOST": "localhost",
@@ -133,7 +132,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
-    'EXCEPTION_HANDLER': 'src.utils.responses.custom_exception_handler',
-    'DEFAULT_PAGINATION_CLASS': 'src.utils.pagination.CustomPagination',
+    'EXCEPTION_HANDLER': 'utils.responses.custom_exception_handler',
+    'DEFAULT_PAGINATION_CLASS': 'utils.pagination.CustomPagination',
     'PAGE_SIZE': 100
 }

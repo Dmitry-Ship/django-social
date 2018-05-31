@@ -1,8 +1,11 @@
-from .models import Like
+def likable(model):
+    class Likable:
+        def __init__(self):
+            self.like_model = model
 
+        @property
+        def likes(self):
+            qs = self.like_model.active.filter(target=self.id)
+            return qs
 
-class Likable:
-    @property
-    def likes(self):
-        qs = Like.active.filter(target_entity=self.id)
-        return qs
+    return Likable

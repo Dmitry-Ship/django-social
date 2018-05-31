@@ -22,8 +22,8 @@ class PostLikesAPIView(generics.ListCreateAPIView):
 
     @handle_likes_errors
     def perform_create(self, serializer):
-        pos_id = self.request.data['post']
-        post = get_object_or_404(Post, pk=pos_id)
+        post_id = self.request.data['post']
+        post = get_object_or_404(Post, pk=post_id)
 
         return serializer.save(author=self.request.user, target=post)
 

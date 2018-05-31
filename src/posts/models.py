@@ -26,10 +26,3 @@ class Post(Deletable, Timestampable, Authorable, likable(model=PostLike), commen
 
     def __str__(self):
         return str(self.content)
-
-
-# @receiver(pre_save, sender=Post)
-# def create_post_target(sender, instance, raw, **kwargs):
-#     if hasattr(instance, 'id') is False:
-#         entity = Entity.objects.create(type=POST)
-#         instance.id = entity

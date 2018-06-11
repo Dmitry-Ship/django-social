@@ -17,3 +17,9 @@ class PostSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         post = Post.objects.create(**validated_data)
         return post
+
+
+class PostNotificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = ('id',  'content')

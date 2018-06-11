@@ -3,10 +3,11 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from users.views import signup
 from posts.views import FeedAPIView
-
+from notifications.views import NotificationsAPIView
 
 urlpatterns = [
     path('feed/', FeedAPIView.as_view()),
+    path('notifications/', NotificationsAPIView.as_view()),
     path('admin/', admin.site.urls),
     path('posts/', include('posts.urls')),
     path('comments/', include('comments.urls')),

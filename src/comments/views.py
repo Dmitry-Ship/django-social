@@ -20,7 +20,7 @@ class CommentsAPIView(generics.ListCreateAPIView):
         post_id = self.request.data['post']
         post = get_object_or_404(Post, pk=post_id)
 
-        return serializer.save(author=self.request.user, taregt=post)
+        return serializer.save(author=self.request.user, target=post)
 
 
 @responses.successful_response_decorator

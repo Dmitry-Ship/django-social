@@ -15,3 +15,11 @@ class CommentSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         comment = PostComment.objects.create(**validated_data)
         return comment
+
+
+class CommentNotificationSerializer(serializers.ModelSerializer):
+    author = UserProfileSimpleSerializer(read_only=True)
+
+    class Meta:
+        model = PostComment
+        fields = ('id', 'author', 'content')

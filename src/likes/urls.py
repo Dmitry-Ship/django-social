@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import PostLikesAPIView, MyLikedCommentsAPIView, MyLikedPostsAPIView, PostDislikeAPIView
+from .views import PostLikesAPIView, CommentLikesAPIView, MyLikedCommentsAPIView, MyLikedPostsAPIView, PostDislikeAPIView
 
 urlpatterns = [
-    path('', PostLikesAPIView.as_view()),
+    path('post', PostLikesAPIView.as_view()),
+    path('comment', CommentLikesAPIView.as_view()),
     path('dislike', PostDislikeAPIView.as_view()),
     path('myLikedPosts', MyLikedPostsAPIView.as_view()),
     path('myLikedComments', MyLikedCommentsAPIView.as_view()),

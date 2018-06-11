@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import permissions
-from .serializers import PostLikeSerializer
+from .serializers import PostLikeSerializer, CommentLikeSerializer
 from posts.serializers import PostSerializer
 from comments.serializers import CommentSerializer
 from .models import PostLike, CommentLike
@@ -16,14 +16,31 @@ class PostLikesAPIView(generics.ListCreateAPIView):
     serializer_class = PostLikeSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-    @decorators.require_parameter('post')
+    @decorators.require_parameter('target')
     def get_queryset(self, query):
         return PostLike.active.filter(target=query)
 
     @handle_likes_errors
     def perform_create(self, serializer):
-        post_id = self.request.data['post']
+        post_id = self.request.data['target']
         post = get_object_or_404(Post, pk=post_id)
+
+        return serializer.save(author=self.request.user, target=post)
+
+
+@responses.successful_response_decorator
+class CommentLikesAPIView(generics.ListCreateAPIView):
+    serializer_class = CommentLikeSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    @decorators.require_parameter('target')
+    def get_queryset(self, query):
+        return CommentLike.active.filter(target=query)
+
+    @handle_likes_errors
+    def perform_create(self, serializer):
+        comment_id = self.request.data['target']
+        post = get_object_or_404(PostComment, pk=comment_id)
 
         return serializer.save(author=self.request.user, target=post)
 

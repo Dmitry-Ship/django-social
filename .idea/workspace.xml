@@ -2,41 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9a5ff96-7db7-4cb0-9543-a8b5e8fcb26e" name="Default" comment="TargetAsId serializer">
+      <change afterPath="$PROJECT_DIR$/src/notifications/constans.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/notifications/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comments/behaviors.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/comments/behaviors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comments/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comments/migrations/0002_auto_20180505_1249.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comments/migrations/0003_auto_20180506_0002.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/comments/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/comments/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/comments/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/comments/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/comments/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/comments/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/likes/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/follows/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/follows/migrations/0002_auto_20180505_1249.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/likes/behaviors.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/likes/behaviors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/likes/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/likes/migrations/0002_auto_20180505_1249.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/likes/migrations/0003_auto_20180506_0002.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/follows/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/follows/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/likes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/likes/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/likes/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/likes/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/likes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/likes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/likes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/likes/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/posts/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/posts/migrations/0002_auto_20180505_1249.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/posts/migrations/0003_auto_20180506_0002.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/posts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/posts/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/posts/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/posts/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/social/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/social/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/users/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/social/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/social/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/users/serializers/UserProfileSerializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/users/serializers/UserProfileSerializer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,67 +29,17 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/likes/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="80">
+              <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/posts/models.py">
+        <entry file="file://$PROJECT_DIR$/src/follows/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="22" column="97" selection-start-line="22" selection-start-column="97" selection-end-line="22" selection-end-column="97" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/comments/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="responses.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/responses.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="33" selection-start-line="33" selection-end-line="50" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="behaviors.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/likes/behaviors.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="behaviors.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/comments/behaviors.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="model_behaviors.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/model_behaviors.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-column="28" />
+            <state relative-caret-position="224">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -121,8 +50,53 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/comments/models.py">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/notifications/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/likes/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/notifications/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="160">
-              <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/notifications/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -130,26 +104,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/comments/serializers.py">
+      <file leaf-file-name="UserProfileSerializer.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/users/serializers/UserProfileSerializer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+            <state relative-caret-position="256">
+              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/likes/serializers.py">
+      <file leaf-file-name="UserProfile.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/users/models/UserProfile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="48">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/users/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -166,14 +146,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>from django.conf import settings</find>
-      <find>get_user_model()</find>
-      <find>get_user</find>
-      <find>GENDER_CHOICES</find>
-      <find>retrieveu</find>
-      <find>self.request</find>
-      <find>perform_up</find>
-      <find>get_serial</find>
       <find>UserProfileSimpleSerializer</find>
       <find>email</find>
       <find>handle_permission_denied</find>
@@ -181,7 +153,6 @@
       <find>genericsx</find>
       <find>handle_parameter_missing</find>
       <find>@responses.successful_response</find>
-      <find>UserProfileListSerializer</find>
       <find>handle_404</find>
       <find>get_paginated_response</find>
       <find>choicefiel</find>
@@ -196,6 +167,15 @@
       <find>custom_exception_handler</find>
       <find>CustomPagination</find>
       <find>post=</find>
+      <find>many</find>
+      <find>author =</find>
+      <find>permission_class</find>
+      <find>choices</find>
+      <find>taregt</find>
+      <find>gender</find>
+      <find>CommentLike.active.filter(target=instance.comment, author=instance.author)</find>
+      <find>c</find>
+      <find>UserProfileListSerializer</find>
     </findStrings>
     <replaceStrings>
       <replace>parameter</replace>
@@ -225,9 +205,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/me/views.py" />
-        <option value="$PROJECT_DIR$/src/posts/feed_urls.py" />
-        <option value="$PROJECT_DIR$/src/users/admin.py" />
         <option value="$PROJECT_DIR$/src/users/models/User.py" />
         <option value="$PROJECT_DIR$/src/users/models/__init__.py" />
         <option value="$PROJECT_DIR$/src/utils/model_behaviors.py" />
@@ -237,18 +214,15 @@
         <option value="$PROJECT_DIR$/src/entities/models.py" />
         <option value="$PROJECT_DIR$/src/likes/behaviours.py" />
         <option value="$PROJECT_DIR$/src/comments/commentable.py" />
-        <option value="$PROJECT_DIR$/src/follows/models.py" />
         <option value="$PROJECT_DIR$/src/accounts/forms.py" />
         <option value="$PROJECT_DIR$/src/accounts/views.py" />
         <option value="$PROJECT_DIR$/src/templates/accounts/signup.html" />
         <option value="$PROJECT_DIR$/src/users/forms.py" />
         <option value="$PROJECT_DIR$/src/templates/users/signedup.html" />
         <option value="$PROJECT_DIR$/src/users/serializers/__init__.py" />
-        <option value="$PROJECT_DIR$/src/users/serializers/UserProfileSerializer.py" />
         <option value="$PROJECT_DIR$/src/follows/urls.py" />
         <option value="$PROJECT_DIR$/src/users/urls.py" />
         <option value="$PROJECT_DIR$/src/utils/mixins.py" />
-        <option value="$PROJECT_DIR$/src/social/urls.py" />
         <option value="$PROJECT_DIR$/src/utils/errors.py" />
         <option value="$PROJECT_DIR$/src/posts/views.py" />
         <option value="$PROJECT_DIR$/src/users/models/UserProfile.py" />
@@ -261,21 +235,27 @@
         <option value="$PROJECT_DIR$/src/utils/pagination.py" />
         <option value="$PROJECT_DIR$/src/utils/serializers.py" />
         <option value="$PROJECT_DIR$/src/notifications/constants.py" />
-        <option value="$PROJECT_DIR$/src/notifications/models.py" />
         <option value="$PROJECT_DIR$/src/likes/constants.py" />
         <option value="$PROJECT_DIR$/src/likes/serializers.py" />
-        <option value="$PROJECT_DIR$/src/likes/views.py" />
         <option value="$PROJECT_DIR$/src/posts/urls.py" />
-        <option value="$PROJECT_DIR$/src/likes/urls.py" />
-        <option value="$PROJECT_DIR$/src/social/settings.py" />
-        <option value="$PROJECT_DIR$/src/posts/serializers.py" />
-        <option value="$PROJECT_DIR$/src/comments/serializers.py" />
-        <option value="$PROJECT_DIR$/src/likes/models.py" />
         <option value="$PROJECT_DIR$/src/likes/behaviors.py" />
         <option value="$PROJECT_DIR$/src/comments/behaviors.py" />
         <option value="$PROJECT_DIR$/src/posts/models.py" />
-        <option value="$PROJECT_DIR$/src/comments/models.py" />
+        <option value="$PROJECT_DIR$/src/social/settings.py" />
+        <option value="$PROJECT_DIR$/src/social/urls.py" />
+        <option value="$PROJECT_DIR$/src/posts/serializers.py" />
         <option value="$PROJECT_DIR$/src/comments/views.py" />
+        <option value="$PROJECT_DIR$/src/likes/urls.py" />
+        <option value="$PROJECT_DIR$/src/likes/views.py" />
+        <option value="$PROJECT_DIR$/src/comments/serializers.py" />
+        <option value="$PROJECT_DIR$/src/notifications/models.py" />
+        <option value="$PROJECT_DIR$/src/comments/models.py" />
+        <option value="$PROJECT_DIR$/src/notifications/constans.py" />
+        <option value="$PROJECT_DIR$/src/follows/models.py" />
+        <option value="$PROJECT_DIR$/src/notifications/views.py" />
+        <option value="$PROJECT_DIR$/src/likes/models.py" />
+        <option value="$PROJECT_DIR$/src/notifications/serializers.py" />
+        <option value="$PROJECT_DIR$/src/users/serializers/UserProfileSerializer.py" />
       </list>
     </option>
   </component>
@@ -291,6 +271,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -307,52 +288,14 @@
               <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
               <item name="django-social" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="comments" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
               <item name="django-social" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="comments" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-social" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="likes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-social" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="likes" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-social" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="posts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-social" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="posts" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-social" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="social" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-social" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="serializers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django-social" type="b2602c69:ProjectViewProjectNode" />
@@ -364,7 +307,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -381,11 +323,11 @@
       <recent name="$PROJECT_DIR$/src/users/models" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/notifications" />
       <recent name="$PROJECT_DIR$/src/comments" />
       <recent name="$PROJECT_DIR$/src/likes" />
       <recent name="$PROJECT_DIR$/src/templates/users" />
       <recent name="$PROJECT_DIR$/src/users" />
-      <recent name="$PROJECT_DIR$/src/entities" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -400,7 +342,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.migrate">
+  <component name="RunManager" selected="Python.runserver">
     <configuration name="Post" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="django-social" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -654,7 +596,7 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.32799014" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4989429" weight="0.33662146" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.32799014" />
-      <window_info anchor="bottom" auto_hide="true" x="0" y="223" width="1419" height="247" id="Run" order="2" sideWeight="0.49930555" weight="0.52281135" />
+      <window_info anchor="bottom" auto_hide="true" x="0" y="223" width="1419" height="247" id="Run" order="2" sideWeight="0.49930555" weight="0.2786683" />
       <window_info id="Structure" order="1" sideWeight="0.5009009" side_tool="true" weight="0.25863284" />
       <window_info anchor="bottom" auto_hide="true" x="0" y="87" width="1440" height="813" id="Terminal" order="10" sideWeight="0.5010571" side_tool="true" weight="0.3267571" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -702,35 +644,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/comments/serializers.py">
+    <entry file="file://$PROJECT_DIR$/src/comments/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/accounts/views.py" />
-    <entry file="file://$PROJECT_DIR$/src/users/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/users/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/users/signedup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="320">
+          <caret line="28" column="109" selection-start-line="28" selection-start-column="109" selection-end-line="28" selection-end-column="109" />
         </state>
       </provider>
     </entry>
@@ -738,13 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/follows/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -773,13 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="822" column="6" selection-start-line="822" selection-start-column="6" selection-end-line="822" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/users/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -840,20 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/django-social/lib/python3.6/site-packages/rest_framework/generics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2158">
-          <caret line="163" column="55" selection-start-line="163" selection-start-column="39" selection-end-line="163" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/pagination.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
@@ -861,28 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/users/serializers/UserProfileSerializer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="29" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/users/models/UserProfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/users/models/User.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/notifications/models.py" />
     <entry file="file://$PROJECT_DIR$/src/notifications/constants.py" />
     <entry file="file://$PROJECT_DIR$/src/entities/constants.py" />
     <entry file="file://$PROJECT_DIR$/src/likes/constants.py">
@@ -894,30 +761,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entities/models.py" />
     <entry file="file://$PROJECT_DIR$/src/entities/serializers.py" />
-    <entry file="file://$PROJECT_DIR$/src/posts/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/social/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/likes/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/posts/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -926,64 +769,177 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/serializers.py" />
-    <entry file="file://$PROJECT_DIR$/src/likes/urls.py">
+    <entry file="file://$PROJECT_DIR$/src/comments/behaviors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="176">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/posts/serializers.py">
+    <entry file="file://$PROJECT_DIR$/src/posts/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
+        <state>
+          <caret selection-end-line="27" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/social/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="661">
-          <caret line="135" column="33" selection-start-line="135" selection-start-column="33" selection-end-line="135" selection-end-column="33" />
+        <state relative-caret-position="185">
+          <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/users/models/User.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/model_behaviors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="23" selection-start-line="23" selection-end-line="24" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/notifications/migrations/0001_initial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-566" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/notifications/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/django-social/lib/python3.6/site-packages/rest_framework/generics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/likes/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        <state relative-caret-position="96">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/social/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/posts/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/responses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="43" column="28" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/posts/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/likes/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/comments/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/notifications/constans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/comments/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        <state relative-caret-position="240">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/responses.py">
+    <entry file="file://$PROJECT_DIR$/src/comments/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="33" selection-start-line="33" selection-end-line="50" selection-end-column="18" />
+        <state relative-caret-position="112">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/model_behaviors.py">
+    <entry file="file://$PROJECT_DIR$/src/notifications/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="28" />
+        <state relative-caret-position="288">
+          <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/likes/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/notifications/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/follows/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -992,50 +948,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/likes/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="80">
+          <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/users/models/UserProfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/notifications/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/posts/models.py">
+    <entry file="file://$PROJECT_DIR$/src/users/serializers/UserProfileSerializer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="22" column="97" selection-start-line="22" selection-start-column="97" selection-end-line="22" selection-end-column="97" />
+        <state relative-caret-position="256">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/comments/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/comments/behaviors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/likes/behaviors.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/comments/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>

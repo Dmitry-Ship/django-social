@@ -43,14 +43,14 @@ class UserProfileDetailSerializer(serializers.ModelSerializer):
     def get_followers(obj):
         ids = obj.userprofile.followers
         qs = get_user_model().objects.filter(pk__in=ids)
-        serializer = UserProfileListSerializer(qs, many=True)
+        serializer = UserProfileSimpleSerializer(qs, many=True)
         return serializer.data
 
     @staticmethod
     def get_following(obj):
         ids = obj.userprofile.following
         qs = get_user_model().objects.filter(pk__in=ids)
-        serializer = UserProfileListSerializer(qs, many=True)
+        serializer = UserProfileSimpleSerializer(qs, many=True)
         return serializer.data
 
 
